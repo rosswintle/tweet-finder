@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweet Finder</title>
+    <style>
+        body {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding-top: 10vh;
+            font-family: sans-serif;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        input {
+            width: 100%;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 20px;
+            border-radius: 8px;
+        }
+
+        input[type="submit"] {
+            padding: 1rem 2rem;
+        }
+
+        .small {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 0.4rem;
+            margin-bottom: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Advanced Twitter Search</h1>
+    <form id="form" action="https://twitter.com/search" method="GET" target="_blank">
+
+        <div>
+            <label for="query">Search query</label>
+            <p class="small">Use double quotes around text for exact phrase matches</p>
+            <p class="small">Use "OR" to do or-type matches. e.g. "this (that OR "something else")</p>
+            <input id="query" name="query" type="text">
+        </div>
+
+        <div>
+            <!-- This needs to be (from%3A<account>)-->
+            <label for="from">From account</label>
+            <br>
+            <input id="from" name="from" type="text">
+        </div>
+
+        <div>
+            <!-- This needs to be (to%3A<account>)-->
+            <label for="to">To account</label>
+            <br>
+            <input id="to" name="to" type="text">
+        </div>
+
+        <div>
+            <!-- Hidden input for final query -->
+            <input id="q" type="hidden" name="q" value="">
+            <input id="f" type="hidden" name="f" value="live">
+            <input id="src" name="src" type="hidden" value="typed_query">
+            <input type="submit" value="Search Twitter">
+        </div>
+    </form>
+
+    <script>
+        const form = document.getElementById('form');
+        const q = document.getElementById('q');
+        const query = document.getElementById('query');
+        const from = document.getElementById('from');
+        const to = document.getElementById('to');
+
+        form.addEventListener('submit', e => {
+            console.log('Submiting');
+            e.preventDefault();
+            let queryString = query.value;
+            if (from.value) {
+                if (from.value.slice(0,1) !== '@') {
+                    from.value = '@' + from.value;
+                }
+                queryString += ` (from:${from.value}) `
+            }
+            if (to.value) {
+                if (to.value.slice(0, 1) !== '@') {
+                    to.value = '@' + to.value;
+                }
+                queryString += ` (to:${to.value}) `
+            }
+
+            q.value = queryString;
+            console.log(queryString);
+            form.submit();
+        })
+    </script>
+</body>
+</html>
