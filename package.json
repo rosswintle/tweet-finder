@@ -1,0 +1,24 @@
+{
+  "name": "tweet-finder",
+  "version": "1.0.0",
+  "description": "A simple way to do advanced search on Twitter",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rosswintle/tweet-finder.git"
+  },
+  "main": "src/style.css",
+  "author": "Ross Wintle",
+  "license": "MIT",
+  "scripts": {
+    "build": "npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dist/tailwind.css",
+    "prod": "NODE_ENV=production npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dist/tailwind.css"
+  },
+  "bugs": {
+    "url": "https://github.com/rosswintle/tweet-finder/issues"
+  },
+  "homepage": "https://github.com/rosswintle/tweet-finder#readme",
+  "dependencies": {
+    "@tailwindcss/forms": "^0.3.2",
+    "tailwindcss": "^2.1.0"
+  }
+}
