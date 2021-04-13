@@ -72,16 +72,20 @@
             e.preventDefault();
             let queryString = query.value;
             if (from.value) {
+                fromQuery = '';
                 if (from.value.slice(0,1) !== '@') {
-                    from.value = '@' + from.value;
+                    fromQuery = '@';
                 }
-                queryString += ` (from:${from.value}) `
+                fromQuery += from.value;
+                queryString += ` (from:${fromQuery}) `
             }
             if (to.value) {
+                toQuery = '';
                 if (to.value.slice(0, 1) !== '@') {
-                    to.value = '@' + to.value;
+                    toQuery = '@';
                 }
-                queryString += ` (to:${to.value}) `
+                toQuery += to.value;
+                queryString += ` (to:${toQuery}) `
             }
 
             q.value = queryString;
