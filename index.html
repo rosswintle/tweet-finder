@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,87 +12,119 @@
     <script src="https://cdn.usefathom.com/script.js" data-site="GBCKIKEN" defer></script>
     <!-- / Fathom -->
 </head>
-<body class="container max-w-2xl mx-auto py-10 px-6">
-    <h1 class="text-6xl font-bold mb-3">Tweet Finder</h1>
-    <h2 class="text-2xl mb-6 text-gray-500">A simple way to do Twitter advanced search.</h2>
-    <form id="form" action="https://twitter.com/search" method="GET" target="_blank">
 
-        <div>
-            <label for="query" class="block font-bold text-2xl">Search query</label>
-            <input id="query" name="query" type="text" class="mt-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-            <p class="mt-2 text-md text-gray-500">Use double quotes around text for exact phrase matches</p>
-            <p class="mb-6 text-md text-gray-500">Use "OR" to do or-type matches. e.g. "this (that OR "something else")</p>
-        </div>
+<body>
 
-        <div>
-            <!-- This needs to be (from:<@account>)-->
-            <label for="from" class="block font-bold text-2xl">From account</label>
-            <div class="mt-3 mb-6 flex rounded-md shadow-sm">
-                <span
-                    class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
-                    @
-                </span>
-                <input id="from" name="from" type="text" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-none rounded-r-md">
+    <div id="banner" class="relative bg-indigo-600">
+        <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
+            <div class="pr-16 sm:text-center sm:px-16">
+                <p class="font-medium text-white">
+                    <span id="mobile-banner-text" class="md:hidden"><strong>AD: </strong>Turbo Admin is the WordPress command palette for ALL your sites!</span>
+                    <span id="desktop-banner-text" class="hidden md:inline"><strong>AD: </strong>Turbo Admin is the WordPress command palette - and more! - for ALL your sites!</span>
+                    <span class="block sm:ml-2 sm:inline-block">
+                        <a href="https://turbo-admin.com/" class="text-white font-bold underline"> Learn more <span
+                                aria-hidden="true">&rarr;</span></a>
+                    </span>
+                </p>
             </div>
         </div>
+    </div>
 
-        <div>
-            <!-- This needs to be (to:<@account>)-->
-            <label for="to" class="block font-bold text-2xl">To account</label>
-            <div class="mt-3 mb-6 flex rounded-md shadow-sm">
-                <span
-                    class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
-                    @
-                </span>
-                <input id="to" name="to" type="text" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-none rounded-r-md">
+    <div class="container max-w-2xl mx-auto py-10 px-6">
+
+        <h1 class="text-6xl font-bold mb-3">Tweet Finder</h1>
+        <h2 class="text-2xl mb-6 text-gray-500">A simple way to do Twitter advanced search.</h2>
+        <form id="form" action="https://twitter.com/search" method="GET" target="_blank">
+
+            <div>
+                <label for="query" class="block font-bold text-2xl">Search query</label>
+                <input id="query" name="query" type="text"
+                    class="mt-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                <p class="mt-2 text-md text-gray-500">Use double quotes around text for exact phrase matches</p>
+                <p class="mb-6 text-md text-gray-500">Use "OR" to do or-type matches. e.g. "this (that OR "something
+                    else")</p>
             </div>
-        </div>
 
-        <div>
-            <!-- Hidden input for final query -->
-            <input id="q" type="hidden" name="q" value="">
-            <input id="f" type="hidden" name="f" value="live">
-            <input id="src" name="src" type="hidden" value="typed_query">
-            <input type="submit" value="Search Twitter" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-        </div>
-    </form>
+            <div>
+                <!-- This needs to be (from:<@account>)-->
+                <label for="from" class="block font-bold text-2xl">From account</label>
+                <div class="mt-3 mb-6 flex rounded-md shadow-sm">
+                    <span
+                        class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                        @
+                    </span>
+                    <input id="from" name="from" type="text"
+                        class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-none rounded-r-md">
+                </div>
+            </div>
 
-    <p class="mt-12 text-md text-gray-500">I'm curious how many are using this, so I'm using <a class="text-indigo-500 hover:underline" href="https://usefathom.com/ref/SVE71E">privacy-friendly Analytics</a>.</p>
-    <p class="text-md text-gray-500">Made by <a class="text-indigo-500 hover:underline" href="https://twitter.com/magicroundabout">@magicroundabout</a> - If this is useful, <a class="text-indigo-500 hover:underline" href="https://ko-fi.com/magicroundabout">buy me a coffee!</a></p>
-    <p class="text-md text-gray-500">Read about <a class="text-indigo-500 hover:underline" href="https://rosswintle.uk/2021/04/tweet-finder-twitter-advanced-search/">why and how I made this.</a></p>
+            <div>
+                <!-- This needs to be (to:<@account>)-->
+                <label for="to" class="block font-bold text-2xl">To account</label>
+                <div class="mt-3 mb-6 flex rounded-md shadow-sm">
+                    <span
+                        class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                        @
+                    </span>
+                    <input id="to" name="to" type="text"
+                        class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-none rounded-r-md">
+                </div>
+            </div>
 
-    <script>
-        const form = document.getElementById('form');
-        const q = document.getElementById('q');
-        const query = document.getElementById('query');
-        const from = document.getElementById('from');
-        const to = document.getElementById('to');
+            <div>
+                <!-- Hidden input for final query -->
+                <input id="q" type="hidden" name="q" value="">
+                <input id="f" type="hidden" name="f" value="live">
+                <input id="src" name="src" type="hidden" value="typed_query">
+                <input type="submit" value="Search Twitter"
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            </div>
+        </form>
 
-        form.addEventListener('submit', e => {
-            console.log('Submiting');
-            e.preventDefault();
-            let queryString = query.value;
-            if (from.value) {
-                fromQuery = '';
-                if (from.value.slice(0,1) !== '@') {
-                    fromQuery = '@';
+        <p class="mt-12 text-md text-gray-500">I'm curious how many are using this, so I'm using <a
+                class="text-indigo-500 hover:underline" href="https://usefathom.com/ref/SVE71E">privacy-friendly
+                Analytics</a>.</p>
+        <p class="text-md text-gray-500">Made by <a class="text-indigo-500 hover:underline"
+                href="https://twitter.com/magicroundabout">@magicroundabout</a> - If this is useful, <a
+                class="text-indigo-500 hover:underline" href="https://ko-fi.com/magicroundabout">buy me a coffee!</a>
+        </p>
+        <p class="text-md text-gray-500">Read about <a class="text-indigo-500 hover:underline"
+                href="https://rosswintle.uk/2021/04/tweet-finder-twitter-advanced-search/">why and how I made this.</a>
+        </p>
+
+        <script>
+            const form = document.getElementById('form');
+            const q = document.getElementById('q');
+            const query = document.getElementById('query');
+            const from = document.getElementById('from');
+            const to = document.getElementById('to');
+
+            form.addEventListener('submit', e => {
+                console.log('Submiting');
+                e.preventDefault();
+                let queryString = query.value;
+                if (from.value) {
+                    fromQuery = '';
+                    if (from.value.slice(0, 1) !== '@') {
+                        fromQuery = '@';
+                    }
+                    fromQuery += from.value;
+                    queryString += ` (from:${fromQuery}) `
                 }
-                fromQuery += from.value;
-                queryString += ` (from:${fromQuery}) `
-            }
-            if (to.value) {
-                toQuery = '';
-                if (to.value.slice(0, 1) !== '@') {
-                    toQuery = '@';
+                if (to.value) {
+                    toQuery = '';
+                    if (to.value.slice(0, 1) !== '@') {
+                        toQuery = '@';
+                    }
+                    toQuery += to.value;
+                    queryString += ` (to:${toQuery}) `
                 }
-                toQuery += to.value;
-                queryString += ` (to:${toQuery}) `
-            }
 
-            q.value = queryString;
-            console.log(queryString);
-            form.submit();
-        })
-    </script>
+                q.value = queryString;
+                console.log(queryString);
+                form.submit();
+            })
+        </script>
 </body>
+
 </html>
